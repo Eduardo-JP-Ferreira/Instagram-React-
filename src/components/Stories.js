@@ -1,78 +1,28 @@
 export default function Stories(){
+
+    const caixaStorie= [
+        {imagem: "assets/img/9gag.svg", nome: "9gag"},
+        {imagem: "assets/img/meowed.svg", nome: "meowed"},
+        {imagem: "assets/img/barked.svg", nome: "barked"},
+        {imagem: "assets/img/nathanwpylestrangeplanet.svg", nome: "nathanwpylestrangeplanet"},
+        {imagem: "assets/img/wawawicomics.svg", nome: "wawawicomics"},
+        {imagem: "assets/img/respondeai.svg", nome: "respondeai"},
+        {imagem: "assets/img/filomoderna.svg", nome: "filomoderna"},
+        {imagem: "assets/img/memeriagourmet.svg", nome: "memeriagourmet"}
+    ]
+
     return(
         <div class="stories">
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/9gag.svg" alt="9gag"/>
+            {caixaStorie.map((c)=>
+                <div class="story">
+                    <div class="imagem">
+                        <img src={c.imagem} alt={c.nome}/>
+                    </div>
+                    <div class="usuario">
+                        {c.nome}
+                    </div>
                 </div>
-                <div class="usuario">
-                    9gag
-                 </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/meowed.svg" alt="meowed"/>
-                </div>
-                <div class="usuario">
-                     meowed
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/barked.svg" alt="barked"/>
-                </div>
-                <div class="usuario">
-                    barked
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/nathanwpylestrangeplanet.svg" alt="nathanwpylestrangeplanet"/>
-                </div>
-                <div class="usuario">
-                     nathanwpylestrangeplanet
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/wawawicomics.svg" alt="wawawicomics"/>
-                </div>
-                <div class="usuario">
-                    wawawicomics
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/respondeai.svg" alt="respondeai"/>
-                </div>
-                <div class="usuario">
-                    respondeai
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/filomoderna.svg" alt="filomoderna"/>
-                </div>
-                <div class="usuario">
-                    filomoderna
-                </div>
-            </div>
-
-            <div class="story">
-                <div class="imagem">
-                    <img src="assets/img/memeriagourmet.svg" alt="memeriagourmet"/>
-                </div>
-                <div class="usuario">
-                    memeriagourmet
-                </div>
-            </div>
-
+            )}
             <div class="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
