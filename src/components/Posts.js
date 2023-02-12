@@ -1,26 +1,38 @@
 import React from "react";
 
+const postagensInicial = [
+    {id: "0",imgTopo: "assets/img/meowed.svg", nomeTopo: "meowed", imgConteudo: "assets/img/gato-telefone.svg", nomeConteudo: "gato",imgCurtida:"assets/img/filomoderna.svg", nomeCurtida: "filomoderna", icone: "bookmark-outline"},
+    {id: "1",imgTopo: "assets/img/barked.svg", nomeTopo: "barked", imgConteudo: "assets/img/dog.svg", nomeConteudo: "dog",imgCurtida:"assets/img/adorable_animals.svg", nomeCurtida: "adorable_Animals", icone: "bookmark-outline"},
+    {id: "2",imgTopo: "assets/img/razoesparaacreditar.svg", nomeTopo: "razoes", imgConteudo: "assets/img/razoesparaacreditar.svg", nomeConteudo: "razao",imgCurtida: "assets/img/respondeai.svg", nomeCurtida: "respondeai", icone: "bookmark-outline"}
+  ]
+
 export default function Posts(){
 
-    const [bookmark, setBookmark] = React.useState("bookmark-outline")
+    const [postagens, setPostagens] = React.useState(postagensInicial);
 
-    function salvar(){
-
-        if (bookmark==="bookmark-outline"){
-            setBookmark("bookmark")
+    function salvar(n , id){
+        console.log("icone",n)
+        console.log("id",id)
+        // const novoArray = postagens
+        // console.log(novoArray)
+        // console.log("p.antes",postagens)
+        if (n==="bookmark-outline"){
+            postagens[id].icone = "bookmark"
+            // console.log(novo
+            setPostagens(postagens)
+            
         }
         else{
-            setBookmark("bookmark-outline")
+            postagens[id].icone = "bookmark-outline"
+            // console.log(novoArray
+            setPostagens(postagens)
         }
+        console.log("p.depois",postagens)
     }
     
 
-  const postagens = [
-    {imgTopo: "assets/img/meowed.svg", nomeTopo: "meowed", imgConteudo: "assets/img/gato-telefone.svg", nomeConteudo: "gato",imgCurtida:"assets/img/filomoderna.svg", nomeCurtida: "filomoderna", icone: `${bookmark}`},
-    {imgTopo: "assets/img/barked.svg", nomeTopo: "barked", imgConteudo: "assets/img/dog.svg", nomeConteudo: "dog",imgCurtida:"assets/img/adorable_animals.svg", nomeCurtida: "adorable_Animals", icone: `${bookmark}`},
-    {imgTopo: "assets/img/razoesparaacreditar.svg", nomeTopo: "razoes", imgConteudo: "assets/img/razoesparaacreditar.svg", nomeConteudo: "razao",imgCurtida: "assets/img/respondeai.svg", nomeCurtida: "respondeai", icone: `${bookmark}`}
-  ]
-
+ 
+ 
     return(
         <div class="posts">
             {postagens.map((p) => 
@@ -47,8 +59,7 @@ export default function Posts(){
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div>
-                                <ion-icon data-test="save-post" onClick={salvar} name={p.icone}></ion-icon>
-                                {console.log(p.icone)}
+                                <ion-icon data-test="save-post" onClick={() => salvar(p.icone , p.id)} name={p.icone}></ion-icon>
                             </div>
                         </div>
 
