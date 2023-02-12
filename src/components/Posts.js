@@ -1,15 +1,30 @@
+import React from "react";
+
 export default function Posts(){
 
+    const [bookmark, setBookmark] = React.useState("bookmark-outline")
+
+    function salvar(){
+
+        if (bookmark==="bookmark-outline"){
+            setBookmark("bookmark")
+        }
+        else{
+            setBookmark("bookmark-outline")
+        }
+    }
+    
+
   const postagens = [
-    {imgTopo: "assets/img/meowed.svg", nomeTopo: "meowed", imgConteudo: "assets/img/gato-telefone.svg", nomeConteudo: "gato",imgCurtida:"assets/img/filomoderna.svg", nomeCurtida: "filomoderna"},
-    {imgTopo: "assets/img/barked.svg", nomeTopo: "barked", imgConteudo: "assets/img/dog.svg", nomeConteudo: "dog",imgCurtida:"assets/img/adorable_animals.svg", nomeCurtida: "adorable_Animals"},
-    {imgTopo: "assets/img/razoesparaacreditar.svg", nomeTopo: "razoes", imgConteudo: "assets/img/razoesparaacreditar.svg", nomeConteudo: "razao",imgCurtida: "assets/img/respondeai.svg", nomeCurtida: "respondeai"}
+    {imgTopo: "assets/img/meowed.svg", nomeTopo: "meowed", imgConteudo: "assets/img/gato-telefone.svg", nomeConteudo: "gato",imgCurtida:"assets/img/filomoderna.svg", nomeCurtida: "filomoderna", icone: `${bookmark}`},
+    {imgTopo: "assets/img/barked.svg", nomeTopo: "barked", imgConteudo: "assets/img/dog.svg", nomeConteudo: "dog",imgCurtida:"assets/img/adorable_animals.svg", nomeCurtida: "adorable_Animals", icone: `${bookmark}`},
+    {imgTopo: "assets/img/razoesparaacreditar.svg", nomeTopo: "razoes", imgConteudo: "assets/img/razoesparaacreditar.svg", nomeConteudo: "razao",imgCurtida: "assets/img/respondeai.svg", nomeCurtida: "respondeai", icone: `${bookmark}`}
   ]
 
     return(
         <div class="posts">
             {postagens.map((p) => 
-                <div class="post">
+                <div data-test="post" class="post">
                     <div class="topo">
                         <div class="usuario">
                             <img src={p.imgTopo} alt={p.nomeTopo}/>
@@ -21,7 +36,7 @@ export default function Posts(){
                     </div>
 
                     <div class="conteudo">
-                        <img src={p.imgConteudo} alt={p.nomeConteudo}/>
+                        <img data-test="post-image" src={p.imgConteudo} alt={p.nomeConteudo}/>
                     </div>
 
                     <div class="fundo">
@@ -32,7 +47,8 @@ export default function Posts(){
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div>
-                                <ion-icon name="bookmark-outline"></ion-icon>
+                                <ion-icon data-test="save-post" onClick={salvar} name={p.icone}></ion-icon>
+                                {console.log(p.icone)}
                             </div>
                         </div>
 
