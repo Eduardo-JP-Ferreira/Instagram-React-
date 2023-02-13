@@ -297,8 +297,16 @@
   
   ion-icon {
     visibility: visible;
+    
   }
-  
+ 
+  .vermelho{
+    color: red;
+  }
+  .preto{
+    color: black;
+  }
+
   .usuario ion-icon {
     margin-left: 5px;
     padding-top: 5px;
